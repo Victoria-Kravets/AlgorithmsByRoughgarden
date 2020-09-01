@@ -1,15 +1,14 @@
 //
-//  AlgorithmsTests.swift
+//  QuickSortAlgorithmTests.swift
 //  AlgorithmsTests
 //
-//  Created by CallStar on 17.08.2020.
+//  Created by CallStar on 01.09.2020.
 //  Copyright © 2020 Victoria Kravets. All rights reserved.
 //
 
 import XCTest
-@testable import Algorithms
 
-class AlgorithmsTests: XCTestCase {
+class QuickSortAlgorithmTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
