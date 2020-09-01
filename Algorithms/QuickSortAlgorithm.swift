@@ -58,6 +58,22 @@ class QuickSortAlgorithm {
      
      //рекурсивно проделываем это с правой и левой частью
      
-     //4/10
-     //5/10
+    //[4,17,1,13,3,18,6,15,2,5,7,8,11,9,20,10,12,14,16,19]
+    func rSelect(array: inout [Int], l: Int, r: Int, i: Int) -> Int {
+        if l == r { return array[l]}
+        
+        let p = Int.random(in: l...r)
+        
+        (array[p], array[l]) = (array[l], array[p])
+        
+        let j = partition(array: &array, l: l, r: r)
+        
+        if j == i {
+            return array[i]
+        } else if j > i {
+            return rSelect(array: &array, l: l, r: j - 1, i: i)
+        } else {
+            return rSelect(array: &array, l: j + 1, r: r, i: i)
+        }
+    }
 }
