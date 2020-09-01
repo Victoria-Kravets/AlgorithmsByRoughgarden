@@ -37,30 +37,6 @@ class MergeSortAlgorithmTests: XCTestCase {
         XCTAssertEqual(result.0, 15)
     }
     
-    func testQuickSort1() throws {
-        let mergeAlgorithm =  QuickSortAlgorithm()
-        var array = [3,2,8,5,1,4,7,6]
-        mergeAlgorithm.quickSort(array: &array, l: 0, r: array.count - 1)
-        XCTAssertEqual(array, [1,2,3,4,5,6,7,8])
-        //k = 5,4,6
-    }
-    
-    func testQuickSort2() throws {
-        let mergeAlgorithm =  QuickSortAlgorithm()
-        var array = [11,3,2,9,8,5,1,10,4,7,12,6]
-        mergeAlgorithm.quickSort(array: &array, l: 0, r: array.count - 1)
-        XCTAssertEqual(array, [1,2,3,4,5,6,7,8,9,10,11,12])
-        //k = 7,8,9
-    }
-    
-    func testQuickSort3() throws {
-        let mergeAlgorithm =  QuickSortAlgorithm()
-        var array = [4,17,1,13,3,18,6,15,2,5,7,8,11,9,20,10,12,14,16,19]
-        mergeAlgorithm.quickSort(array: &array, l: 0, r: array.count - 1)
-        XCTAssertEqual(array, [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
-        //k = 12,14,15,13
-    }
-    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
