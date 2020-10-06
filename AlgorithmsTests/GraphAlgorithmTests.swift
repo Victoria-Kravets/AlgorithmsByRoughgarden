@@ -2,31 +2,31 @@ import XCTest
 @testable import Algorithms
 
 class GraphAlgorithmTests: XCTestCase {
-
-  func testBFSTree() {
-    let tree = Graph()
-
-    let nodeA = tree.addNode("a")
-    let nodeB = tree.addNode("b")
-    let nodeC = tree.addNode("c")
-    let nodeD = tree.addNode("d")
-    let nodeE = tree.addNode("e")
-    let nodeF = tree.addNode("f")
-    let nodeG = tree.addNode("g")
-    let nodeH = tree.addNode("h")
-
-    tree.addEdge(nodeA, neighbor: nodeB)
-    tree.addEdge(nodeA, neighbor: nodeC)
-    tree.addEdge(nodeB, neighbor: nodeD)
-    tree.addEdge(nodeB, neighbor: nodeE)
-    tree.addEdge(nodeC, neighbor: nodeF)
-    tree.addEdge(nodeC, neighbor: nodeG)
-    tree.addEdge(nodeE, neighbor: nodeH)
-
-    let nodesExploredBFS = breadthFirstSearch(tree, source: nodeA)
-
-    XCTAssertEqual(nodesExploredBFS, ["a", "b", "c", "d", "e", "f", "g", "h"])
-  }
+    
+    func testBFSTree() {
+        let tree = Graph()
+        
+        let nodeA = tree.addNode("a")
+        let nodeB = tree.addNode("b")
+        let nodeC = tree.addNode("c")
+        let nodeD = tree.addNode("d")
+        let nodeE = tree.addNode("e")
+        let nodeF = tree.addNode("f")
+        let nodeG = tree.addNode("g")
+        let nodeH = tree.addNode("h")
+        
+        tree.addEdge(nodeA, neighbor: nodeB)
+        tree.addEdge(nodeA, neighbor: nodeC)
+        tree.addEdge(nodeB, neighbor: nodeD)
+        tree.addEdge(nodeB, neighbor: nodeE)
+        tree.addEdge(nodeC, neighbor: nodeF)
+        tree.addEdge(nodeC, neighbor: nodeG)
+        tree.addEdge(nodeE, neighbor: nodeH)
+        
+        let nodesExploredBFS = breadthFirstSearch(tree, source: nodeA)
+        
+        XCTAssertEqual(nodesExploredBFS, ["a", "b", "c", "d", "e", "f", "g", "h"])
+    }
     
     func testDFSTree() {
         let tree = Graph()
@@ -145,6 +145,26 @@ class GraphAlgorithmTests: XCTestCase {
         let nodesExploredDFS = depthFirstSearch(graph, source: nodeA)
         
         XCTAssertEqual(nodesExploredDFS, ["a", "b", "c", "d", "e", "f", "g", "h", "i"])
+    }
+    
+    func testDijkstraTree() {
+        let tree = Graph()
+        
+        let nodeS = tree.addNode("s")
+        let nodeV = tree.addNode("v")
+        let nodeW = tree.addNode("w")
+        let nodeT = tree.addNode("t")
+
+        
+        tree.addEdge(nodeS, neighbor: nodeV, lenght: 1)
+        tree.addEdge(nodeS, neighbor: nodeW, lenght: 4)
+        tree.addEdge(nodeV, neighbor: nodeW, lenght: 2)
+        tree.addEdge(nodeV, neighbor: nodeT, lenght: 6)
+        tree.addEdge(nodeW, neighbor: nodeT, lenght: 3)
+        
+        let shortestLenth = dijkstraSearch(graph: tree, sourceNode: nodeS, finishNode: nodeT)
+        
+        XCTAssertEqual(shortestLenth, 6)
     }
     
     func testExploringGraphWithASingleNode() {
