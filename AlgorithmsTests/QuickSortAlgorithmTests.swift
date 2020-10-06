@@ -43,34 +43,69 @@ class QuickSortAlgorithmTests: XCTestCase {
 //        //k = 12,14,15,13
 //    }
     
-//    func testQuickSort4() throws {
+    func testQuickSort4() throws {
+        let mergeAlgorithm =  QuickSortAlgorithm()
+        var array = [6,2]
+        mergeAlgorithm.quickSort(array: &array, l: 0, r: array.count - 1)
+        XCTAssertEqual(array, [2,6])
+    }
+    
+//    func testRSelect1() throws {
 //        let mergeAlgorithm =  QuickSortAlgorithm()
 //        var array = [6,8,9,2]
-//        mergeAlgorithm.quickSort(array: &array, l: 0, r: array.count - 1)
-//        XCTAssertEqual(array, [2,6,8,9])
-//        //k = 12,14,15,13
+//        let result = mergeAlgorithm.rSelect(array: &array, l: 0, r: array.count - 1, i: 1)
+//        XCTAssertEqual(result, 6)
+//    }
+//
+//    func testRSelect2() throws {
+//        let mergeAlgorithm =  QuickSortAlgorithm()
+//        var array = [3,2,8,5,1,4,7,6]
+//        let result = mergeAlgorithm.rSelect(array: &array, l: 0, r: array.count - 1, i: 5)
+//        XCTAssertEqual(result, 6)
 //    }
     
-    func testRSelect1() throws {
-        let mergeAlgorithm =  QuickSortAlgorithm()
-        var array = [6,8,9,2]
-        let result = mergeAlgorithm.rSelect(array: &array, l: 0, r: array.count - 1, i: 1)
-        XCTAssertEqual(result, 6)
-    }
+//    func testRSelect3() throws {
+//        let mergeAlgorithm =  QuickSortAlgorithm()
+//        var array = [4,17,1,13,3,18,6,15,2,5,7,8,11,9,20,10,12,14,16,19]
+//        let result = mergeAlgorithm.rSelect(array: &array, l: 0, r: array.count - 1, i: 16)
+//        XCTAssertEqual(result, 17)
+//    }
     
-    func testRSelect2() throws {
-        let mergeAlgorithm =  QuickSortAlgorithm()
-        var array = [3,2,8,5,1,4,7,6]
-        let result = mergeAlgorithm.rSelect(array: &array, l: 0, r: array.count - 1, i: 5)
-        XCTAssertEqual(result, 6)
-    }
+//    func testDSelect1() throws {
+//        let mergeAlgorithm =  QuickSortAlgorithm()
+//        var array = [6,8,9,2]
+//        let result = mergeAlgorithm.dSelect(array: &array, l: 0, r: array.count - 1, i: 1)
+//        XCTAssertEqual(result, 6)
+//    }
     
-    func testRSelect3() throws {
-        let mergeAlgorithm =  QuickSortAlgorithm()
-        var array = [4,17,1,13,3,18,6,15,2,5,7,8,11,9,20,10,12,14,16,19]
-        let result = mergeAlgorithm.rSelect(array: &array, l: 0, r: array.count - 1, i: 16)
-        XCTAssertEqual(result, 17)
-    }
+    
+//    func testDSelect2() throws {
+//           let mergeAlgorithm =  QuickSortAlgorithm()
+//           var array = [3,2,8,9,5,1,10,4,7,6]
+//           let result = mergeAlgorithm.dSelect(array: &array, l: 0, r: array.count - 1, i: 5)
+//           XCTAssertEqual(result, 6)
+//       }
+    
+//    func testFindMidle1() throws {
+//        let mergeAlgorithm = QuickSortAlgorithm()
+//        var array = [11,6,10,1,15]
+//        let result = mergeAlgorithm.findMiddle(arr: array)
+//        XCTAssertEqual(result, 10)
+//    }
+//
+//    func testFindMidle2() throws {
+//        let mergeAlgorithm = QuickSortAlgorithm()
+//        var array =  [8,1,7,14,3]
+//        let result = mergeAlgorithm.findMiddle(arr: array)
+//        XCTAssertEqual(result,7)
+//    }
+//
+//    func testFindMidle3() throws {
+//        let mergeAlgorithm =  QuickSortAlgorithm()
+//        var array = [9,12,4,5,13]
+//        let result = mergeAlgorithm.findMiddle(arr: array)
+//        XCTAssertEqual(result, 9)
+//    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

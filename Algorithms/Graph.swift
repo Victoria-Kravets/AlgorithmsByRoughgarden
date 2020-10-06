@@ -77,28 +77,6 @@ public class Graph: CustomStringConvertible, Equatable {
     }
     return description
   }
-
-  public func findNodeWithLabel(_ label: String) -> Node {
-    return nodes.filter { $0.label == label }.first!
-  }
-
-  public func duplicate() -> Graph {
-    let duplicated = Graph()
-
-    for node in nodes {
-      _ = duplicated.addNode(node.label)
-    }
-
-    for node in nodes {
-      for edge in node.neighbors {
-        let source = duplicated.findNodeWithLabel(node.label)
-        let neighbour = duplicated.findNodeWithLabel(edge.neighbor.label)
-        duplicated.addEdge(source, neighbor: neighbour)
-      }
-    }
-
-    return duplicated
-  }
 }
 
 public func == (lhs: Graph, rhs: Graph) -> Bool {

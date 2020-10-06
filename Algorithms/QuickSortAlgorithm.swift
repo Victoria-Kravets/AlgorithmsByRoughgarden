@@ -76,4 +76,53 @@ class QuickSortAlgorithm {
             return rSelect(array: &array, l: j + 1, r: r, i: i)
         }
     }
+    // [3,2,8,9,5,1,10,4,7,6] // 5 & 6
+    func dSelect(array: inout [Int], l: Int, r: Int, i: Int) -> Int {
+        if l == r { return array[l]}
+
+        let p = findMiddle(arr: array)
+        
+        (array[p], array[l]) = (array[l], array[p])
+        
+        let j = partition(array: &array, l: l, r: r)
+        if j == i {
+            return array[i]
+        } else if j > i {
+            return rSelect(array: &array, l: l, r: j - 1, i: i)
+        } else {
+            return rSelect(array: &array, l: j + 1, r: r, i: i)
+        }
+    }
+    
+    func findMiddle(arr: [Int]) -> Int {
+        var minVal = arr[0]
+        var maxVal = arr[0]
+        for j in 1 ..< arr.count  {
+           let currEl = arr[j]
+           if (currEl > maxVal) {
+             maxVal = arr[j]
+           }
+           if (currEl < minVal) {
+             minVal = arr[j]
+           }
+         }
+         let average = (maxVal + minVal) / 2
+
+         print("min: \(minVal), max: \(maxVal), average: \(average)")
+
+         var averageEl = arr[0]
+         var average_diff = maxVal - minVal
+
+        for j in 1 ..< arr.count {
+           let currEl = arr[j]
+           let temp_average_diff = abs(currEl - average)
+           print("currEl: \(currEl), average_diff: \(average_diff), temp_average_diff: \(temp_average_diff)")
+           if (temp_average_diff < average_diff) {
+             average_diff = temp_average_diff
+             averageEl = currEl
+           }
+         }
+         return averageEl
+    }
+    
 }

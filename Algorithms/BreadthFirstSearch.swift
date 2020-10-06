@@ -1,20 +1,22 @@
+
+
 func breadthFirstSearch(_ graph: Graph, source: Node) -> [String] {
-  var queue = Queue<Node>()
-  queue.enqueue(source)
-
-  var nodesExplored = [source.label]
-  source.visited = true
-
-  while let current = queue.dequeue() {
-    for edge in current.neighbors {
-      let neighborNode = edge.neighbor
-      if !neighborNode.visited {
-        queue.enqueue(neighborNode)
-        neighborNode.visited = true
-        nodesExplored.append(neighborNode.label)
-      }
+    var result: [String] = [source.label]
+    source.visited = true
+    
+    var queue = Queue<Node>()
+    queue.addElement(source)
+    
+    while let node = queue.removeElement() {
+        for e in node.neighbors {
+            if !e.neighbor.visited {
+                queue.addElement(e.neighbor)
+                e.neighbor.visited = true
+                result.append(e.neighbor.label)
+            }
+        }
     }
-  }
-
-  return nodesExplored
+    
+    return result
 }
+
