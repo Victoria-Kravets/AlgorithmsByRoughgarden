@@ -162,6 +162,7 @@ class GraphAlgorithmTests: XCTestCase {
         tree.addEdge(nodeV, neighbor: nodeT, lenght: 6)
         tree.addEdge(nodeW, neighbor: nodeT, lenght: 3)
         
+        tree.addEdge(nodeT, neighbor: nodeS, lenght: 5)
         let shortestLenth = dijkstraSearch(graph: tree, sourceNode: nodeS, finishNode: nodeT)
         
         XCTAssertEqual(shortestLenth, 6)
