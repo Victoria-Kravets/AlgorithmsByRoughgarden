@@ -8,25 +8,6 @@
 
 import Foundation
 
-class Path {
-    var node: Node
-    var edge: Edge?
-    var previousPath: Path?
-    
-    var pathWeight: Int
-    
-    init(node: Node, edge: Edge? = nil, previousPath: Path? = nil) {
-        if let previousPath = previousPath, let edge = edge {
-            self.pathWeight = previousPath.pathWeight + edge.lenght
-            self.previousPath = previousPath
-            self.edge = edge
-        } else {
-            self.pathWeight = 0
-        }
-        self.node = node
-    }
-}
-
 func dijkstraSearch(sourceNode: Node, finishNode: Node) -> Path? {
     
     var paths = [Path]() {
@@ -55,26 +36,22 @@ func dijkstraSearch(sourceNode: Node, finishNode: Node) -> Path? {
     return nil
 }
 
-func dijkstraSearch(graph: Graph, sourceNode: Node, finishNode: Node) -> Int { // O(*nm*)
-    var edges = sourceNode.neighbors
-    sourceNode.visited = true
-    var shortestLength = 0
+func dijkstraSearchWithHeap(sourceNode: Node, finishNode: Node) -> Path? {
+    let heap = HeapPath()
+    heap.insert(element: Path(node: sourceNode))
     
-    while !edges.isEmpty { // O(*m*)
-        
-        let shortestEdge = edges.min { $0.lenght < $1.lenght } //O(*n*)
-        shortestLength += shortestEdge?.lenght ?? 0
-
-        (shortestEdge?.neighbor.neighbors ?? []).forEach { //O(*k*) k < n
-            if !$0.neighbor.visited {
-                edges.append($0)
-            }
+    while !heap.getHeap().isEmpty {
+        guard let shortestPath = heap.selectMinimum() else { return heap.findMinimum() }
+        if shortestPath.node.visited { continue }
+        if shortestPath.node == finishNode {
+            return shortestPath
         }
-        shortestEdge?.neighbor.visited = true
-        edges.removeAll(where: { $0 == shortestEdge }) // O(*n*)
+        shortestPath.node.visited = true
         
+        for edge in shortestPath.node.neighbors {
+            heap.insert(element: Path(node: edge.neighbor, edge: edge, previousPath: shortestPath))
+        }        
     }
     
-    return shortestLength
+    return heap.findMinimum()
 }
-

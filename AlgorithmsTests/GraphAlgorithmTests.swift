@@ -147,65 +147,6 @@ class GraphAlgorithmTests: XCTestCase {
         XCTAssertEqual(nodesExploredDFS, ["a", "b", "c", "d", "e", "f", "g", "h", "i"])
     }
     
-    func testDijkstraTree() {
-        let tree = Graph()
-        
-        let nodeS = tree.addNode("s")
-        let nodeV = tree.addNode("v")
-        let nodeW = tree.addNode("w")
-        let nodeT = tree.addNode("t")
-
-        
-        tree.addEdge(nodeS, neighbor: nodeV, lenght: 1)
-        tree.addEdge(nodeS, neighbor: nodeW, lenght: 4)
-        tree.addEdge(nodeV, neighbor: nodeW, lenght: 2)
-        tree.addEdge(nodeV, neighbor: nodeT, lenght: 6)
-        tree.addEdge(nodeW, neighbor: nodeT, lenght: 3)
-        
-        tree.addEdge(nodeT, neighbor: nodeS, lenght: 5)
-        let shortestLenth = dijkstraSearch(graph: tree, sourceNode: nodeS, finishNode: nodeT)
-        
-        XCTAssertEqual(shortestLenth, 6)
-    }
-    
-    func testDijkstraTree2() {
-        let tree = Graph()
-        
-        let nodeS = tree.addNode("s")
-        let nodeV = tree.addNode("v")
-        let nodeW = tree.addNode("w")
-        let nodeT = tree.addNode("t")
-
-        
-        tree.addEdge(nodeS, neighbor: nodeV, lenght: 1)
-        tree.addEdge(nodeS, neighbor: nodeW, lenght: 4)
-        tree.addEdge(nodeV, neighbor: nodeW, lenght: 2)
-        tree.addEdge(nodeV, neighbor: nodeT, lenght: 4)
-        tree.addEdge(nodeW, neighbor: nodeT, lenght: 3)
-        
-        tree.addEdge(nodeT, neighbor: nodeS, lenght: 5)
-        let shortestPath = dijkstraSearch(sourceNode: nodeS, finishNode: nodeT)
-        
-        XCTAssertEqual(shortestPath?.pathWeight, 5)
-    }
-    
-    func testDijkstraTree3() {
-        let tree = Graph()
-        
-        let nodeS = tree.addNode("s")
-        let nodeV = tree.addNode("v")
-        let nodeW = tree.addNode("w")
-        
-        tree.addEdge(nodeS, neighbor: nodeV, lenght: 1)
-        tree.addEdge(nodeS, neighbor: nodeW, lenght: 4)
-        tree.addEdge(nodeV, neighbor: nodeW, lenght: 2)
-
-        let shortestPath = dijkstraSearch(sourceNode: nodeS, finishNode: nodeW)
-        
-        XCTAssertEqual(shortestPath?.pathWeight, 3)
-    }
-   
-    
     func testExploringGraphWithASingleNode() {
         let graph = Graph()
         let node = graph.addNode("a")
