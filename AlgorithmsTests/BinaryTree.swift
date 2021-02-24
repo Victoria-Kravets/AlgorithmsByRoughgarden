@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Algorithms
 
 class BinaryTree: XCTestCase {
 
@@ -19,8 +20,17 @@ class BinaryTree: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+       
+        let tree1Node2 = TreeNode(2)
+        let tree1Node3 = TreeNode(3)
+        let tree1Node1 = TreeNode(1, tree1Node2, tree1Node3)
+        
+        let tree2Node2 = TreeNode(2)
+        let tree2Node3 = TreeNode(3)
+        let tree2Node1 = TreeNode(1, tree2Node2, tree2Node3)
+        
+        let result = isSameTree(tree1Node1, tree2Node1)
+        XCTAssertTrue(result)
     }
 
     func testPerformanceExample() throws {

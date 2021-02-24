@@ -29,6 +29,7 @@
 		24FBABDB253EE53200342299 /* HeapPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBABDA253EE53200342299 /* HeapPath.swift */; };
 		24FBABDF253EE5BB00342299 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBABDE253EE5BB00342299 /* Path.swift */; };
 		24FBABE3253EE90C00342299 /* DijkstraAlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBABE2253EE90C00342299 /* DijkstraAlgorithmTests.swift */; };
+		ED4385C625E67959002EEE8E /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4385C525E67959002EEE8E /* BinaryTree.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		24FBABDA253EE53200342299 /* HeapPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapPath.swift; sourceTree = "<group>"; };
 		24FBABDE253EE5BB00342299 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		24FBABE2253EE90C00342299 /* DijkstraAlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DijkstraAlgorithmTests.swift; sourceTree = "<group>"; };
+		ED4385C525E67959002EEE8E /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				240B669224EA759E00B39B1C /* MergeSortAlgorithmTests.swift */,
 				240B669424EA759E00B39B1C /* Info.plist */,
 				2423474824FE54630099A870 /* QuickSortAlgorithmTests.swift */,
+				ED4385C525E67959002EEE8E /* BinaryTree.swift */,
 			);
 			path = AlgorithmsTests;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			files = (
 				24FBABE3253EE90C00342299 /* DijkstraAlgorithmTests.swift in Sources */,
 				240B669324EA759E00B39B1C /* MergeSortAlgorithmTests.swift in Sources */,
+				ED4385C625E67959002EEE8E /* BinaryTree.swift in Sources */,
 				2423474924FE54630099A870 /* QuickSortAlgorithmTests.swift in Sources */,
 				24ED25CE2513C4B8009EDC2F /* GraphAlgorithmTests.swift in Sources */,
 				24FBAB6E253DA94700342299 /* HeapDataStructure.swift in Sources */,
