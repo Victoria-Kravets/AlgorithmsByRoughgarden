@@ -33,3 +33,100 @@ func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool { // рекурсивн�
         return p == nil && q == nil
     }
 }
+
+func isSymmetric(_ root: TreeNode?) -> Bool { // рекурсивный метод
+    if let root = root, let p = root.left, let q = root.right {
+        if p.val == q.val {
+           return (isSymmetric(p.left, q.right) && isSymmetric(p.right, q.left) )
+       } else {
+           return false
+       }
+    } else {
+        return root != nil && (root?.left == nil && root?.right == nil)
+    }
+}
+
+func isSymmetric(_ p: TreeNode?, _ q: TreeNode?) -> Bool { // рекурсивный метод
+    if let p = p, let q = q {
+        if p.val == q.val {
+           return (isSymmetric(p.left, q.right) && isSymmetric(p.right, q.left))
+       } else {
+           return false
+       }
+    } else {
+        return p == nil && q == nil
+    }
+}
+func maxDepth(_ root: TreeNode?) -> Int {
+    if let root = root {
+        var result = 1
+         result += maxDepthNodes(root)
+        return result
+    } else {
+        return 0
+    }
+}
+
+func maxDepthNodes(_ root: TreeNode?) -> Int {
+    var leftDepth = 0
+    var rightDepth = 0
+    if let root = root {
+        
+        if let left = root.left {
+            leftDepth += 1
+            leftDepth += maxDepthNodes(left)
+        }
+        if let right = root.right {
+            rightDepth += 1
+            rightDepth += maxDepthNodes(right)
+        }   
+    } else {
+        return 0
+    }
+    return leftDepth >= rightDepth ? leftDepth : rightDepth
+}
+
+func isValidBST(_ root: TreeNode?) -> Bool {
+    var resultLeft = false
+    var resultRight = false
+    if let root = root {
+        if let left = root.left {
+            if left.val < root.val  {
+                resultLeft = isValidBST(left)
+            }
+        } else {
+            resultLeft = true
+        }
+
+        if let right = root.right {
+            if right.val > root.val {
+                resultRight = isValidBST(right)
+            }
+        } else {
+             resultRight = true
+        }
+
+        return (root.left == nil && root.right == nil) || (resultLeft && resultRight)
+    }
+    return false
+}
+
+func sortedArrayToBST(_ nums: [Int]) -> TreeNode? {
+    if nums.count == 0 {
+        return nil
+    }
+    let mid = nums[nums.count / 2]
+    var nums = nums
+    nums.remove(at: nums.count / 2)
+    let treeNode = TreeNode(mid)
+    let ct = nums.count
+    let half = ct / 2
+    let leftSplit = nums[0 ..< half]
+    let rightSplit = nums[half ..< ct]
+    
+    treeNode.right = sortedArrayToBST(Array(rightSplit))
+    treeNode.left = sortedArrayToBST(Array(leftSplit))
+    
+     return treeNode
+    
+}
