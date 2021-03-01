@@ -171,6 +171,30 @@ class BinaryTree: XCTestCase {
         print(expectedResult)
     }
     
+    func testArrayToBinaryTree2() throws {
+        //108. Convert Sorted Array to Binary Search Tree
+        let nums = [1,3]
+        let result = sortedArrayToBST(nums)
+        print(result)
+
+    }
+    
+    func testArrayToBinaryTree3() throws {
+        //108. Convert Sorted Array to Binary Search Tree
+        let nums = [-1, 0, 1, 2]
+        let result = sortedArrayToBST(nums)
+        print(result)
+
+    }
+    
+    func testArrayToBinaryTree4() throws {
+        //108. Convert Sorted Array to Binary Search Tree
+        let nums = [0,1,2,3,4,5] 
+        let result = sortedArrayToBST(nums)
+        print(result)
+
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

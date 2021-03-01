@@ -112,21 +112,7 @@ func isValidBST(_ root: TreeNode?) -> Bool {
 }
 
 func sortedArrayToBST(_ nums: [Int]) -> TreeNode? {
-    if nums.count == 0 {
-        return nil
-    }
-    let mid = nums[nums.count / 2]
-    var nums = nums
-    nums.remove(at: nums.count / 2)
-    let treeNode = TreeNode(mid)
-    let ct = nums.count
-    let half = ct / 2
-    let leftSplit = nums[0 ..< half]
-    let rightSplit = nums[half ..< ct]
-    
-    treeNode.right = sortedArrayToBST(Array(rightSplit))
-    treeNode.left = sortedArrayToBST(Array(leftSplit))
-    
-     return treeNode
-    
+   return nil
 }
+
+
